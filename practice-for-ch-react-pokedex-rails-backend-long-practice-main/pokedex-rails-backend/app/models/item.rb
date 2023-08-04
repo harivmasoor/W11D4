@@ -12,8 +12,8 @@
 #  updated_at :datetime         not null
 #
 class Item < ApplicationRecord 
-  validates price, happiness, image_url, presence: true
+  validates :price, :happiness, :image_url, presence: true
   validates :name, length: { maximum: 255 }
-  validates :price, length: { greater_than_or_equal_to: 0 }
+  validates :price, length: { minimum: 0 }
   belongs_to :pokemon
 end
